@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+
+<button onclick="loadCurrency()">Load currency!</button>
+<div id="currency">
+
+</div>
+
+<script>
+    function loadCurrency() {
+        var xhr = new XMLHttpRequest();
+        var currency = document.getElementById('currency');
+        var p = document.createElement('p');
+
+        xhr.open('GET', url, false);
+        xhr.send();
+
+        if (xhr.status != 200) {
+            alert('Ошибка ' + xhr.status + ': ' + xhr.statusText);
+        } else {
+            var cur = JSON.parse(xhr.responseText);
+            cur.forEach(function (item) {
+                for (key in item) {
+                    currency.innerHTML += '<p>' + key + ' ' + item[key] + '<p>';
+                }
+
+            });
+        }
+    }
+
+    var url = 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3&fbclid=IwAR16ywc_0qbU8rgap2Ejm7AFaR2JB_FglUOtNQ-0rOwyPlw5Kj5n7sO5liA'
+</script>
+
+</body>
+
+</html>
