@@ -1,3 +1,4 @@
+// $ npm install nodemon -g
 var http = require('http');
 var fs = require('fs');
 var port = 3000;
