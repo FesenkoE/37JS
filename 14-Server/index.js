@@ -3,23 +3,18 @@ var fs = require('fs');
 var Event = require('events').EventEmitter;
 var Url = require('url');
 
-// 1. Создаём новый объект XMLHttpRequest
+
 var anHttpRequest = new XMLHttpRequest();
 console.log(anHttpRequest );
 
-// 2. Конфигурируем его: GET-запрос на URL 'phones.json'
+
 // console.log(xhr.open('GET', 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=3&fbclid=IwAR2KOAf8S3ADTKGWwn2DNXltOPg0lbDbp_QstKiSY_bHKV6pnIQFtahZ_RU', false));
-//
-// // 3. Отсылаем запрос
 // xhr.send();
 
-// 4. Если код ответа сервера не 200, то это ошибка
 // if (xhr.status != 200) {
-//     // обработать ошибку
-//     console.log( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
+//     console.log( xhr.status + ': ' + xhr.statusText );
 // } else {
-//     // вывести результат
-//     console.log( xhr.responseText ); // responseText -- текст ответа.
+//     console.log( xhr.responseText );
 // }
 
 
@@ -45,8 +40,6 @@ console.log(anHttpRequest );
 //     }
 //
 //     if (req.url === '/currency') {
-//
-//
 //         res.write('Helo World');
 //         res.end();
 //     }
