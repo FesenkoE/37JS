@@ -1,0 +1,16 @@
+{
+  "name": "16-npm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "../16-class/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cli-color": "^1.4.0",
+    "sync-request": "^6.0.0"
+  }
+}
