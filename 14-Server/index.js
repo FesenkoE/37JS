@@ -55,7 +55,7 @@ console.log(anHttpRequest );
 //     }
 //
 //     if (req.url === '/contact') {
-//         fs.readFile('index.html', 'UTF-8', function(err, data) {
+//         fs.readFile('index.ejs', 'UTF-8', function(err, data) {
 //             if (err) {
 //                 console.log(err);
 //             } else {

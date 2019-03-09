@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        .balls {
+            display: flex;
+            flex-wrap: wrap;
+        }    
+
+        .ball {
+            width: 100px;
+            margin: 5px;
+            height: 100px;
+            border-radius: 50%;            
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .buttons {
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 7px 15px;
+            border: none;
+            border-radius: 4px;
+            transition: all 0.2s ease-in-out; 
+        }
+
+        button:hover {
+            cursor: pointer;
+            padding: 7px 10px 7px 20px;
+        }
+
+    </style>
+
+    <script>
+        $(document).ready(function () { 
+           var d = new Date();
+           var timeStart = d.getTime();
+           var count = 0; 
+
+
+           $('button').on('click', function() {            
+                $('.balls').append(getRandomBall(count)); 
+           });           
+
+           $('body').on('click', '.ball', function() {                                      
+                if ($(this).hasClass('green')) {
+                    $(this).remove();
+                } else {
+                    $('.balls').append(getRandomBall(count));
+                    $('.balls').append(getRandomBall(count));                
+                }
+                checkBalls(timeStart);
+            });
+
+           function getRandomBall() {
+                let randomBall;
+                if (Math.random() > 0.5) {
+                    randomBall = '<div class="ball green"></div>';
+                } else {
+                    randomBall = '<div class="ball red"></div>';
+                }
+                count++;
+                return randomBall;}
+           function checkBalls(timeStart) {
+               var i = 0;
+               var j = 0;
+
+               $( '.ball' ).each(function() {
+                   if ($(this).hasClass('green')) {     
+                       i++;                                               
+                   } 
+                   if ($(this).hasClass('ball')) {     
+                       j++;                                               
+                   } 
+               });               
+
+               if (i == 0) {                
+                   $( '.ball' ).each(function() {
+                       $(this).removeClass('red').addClass('green'); 
+                   });
+               }
+
+               if (j == 0) { 
+                   var w = new Date();  
+                   var timeEnd = w.getTime();                                      
+                   let wastedTime = (timeEnd - timeStart) / 1000;
+                   alert('Congratulation!!! You are finished the game about ' + wastedTime + ' seconds and deleted ' + count + ' balls');
+               }} 
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="balls">
+        
+    </div>
+    <div class="buttons">
+        <button>add ball</button>
+    </div>
+</body>
+</html>
